@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<div id="app">
+	<p v-if="score>=90">优秀</p>
+	<p v-else-if="score>=80">良好</p>
+	<p v-else-if="score>=70">及格</p>
+	<p v-else>不及格</p>
+	<input type="text" v-model="score"/>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+	let vm = new Vue({
+	  el:'#app',
+	  data:{
+	  	score:70,
+	  }
+	})
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<div id="app">
+	<table>
+		<thead>
+		<tr>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>性别</td>
+		</tr>
+		</thead>
+
+		<tbody>
+			<tr v-for="p in persons">
+				<td>{{p.name}}</td>
+				<td>{{p.age}}</td>
+				<td>{{p.sex}}</td>
+			</tr>
+
+		</tbody>
+	</table>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+	let vm = new Vue({
+	  el:'#app',
+	  data:{
+	  	persons:[
+		  {name:"mudy",age:12,sex:"男"},
+		  {name:"mudy2",age:15,sex:"女"},
+		  {name:"mudy3",age:14,sex:"男"},
+	    ]
+	  }
+	})
+</script>
+
+
+
+</body>
+</html>

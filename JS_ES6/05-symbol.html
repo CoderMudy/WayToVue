@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	let str1 = "张三"
+	let str2 = "张三"
+	console.log(str1 === str2);//true
+
+	let name1 = Symbol("张三")
+	let name2 = Symbol("张三")
+	console.log(name1 === name2);//false
+
+	const obj = {}
+	obj[Symbol("name")] = "张三"
+	obj[Symbol("name")] = "李四"
+	console.log(obj);
+
+</script>
+</body>
+</html>

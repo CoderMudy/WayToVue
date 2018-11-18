@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+
+	//1、创建一个集合
+	let set = new Set(["张三","lisi","wangwu"])
+	console.log(set);
+
+	// 集合的一个属性 size 打印出集合中元素的个数
+	console.log(set.size);
+
+	// 集合的方法 add delete has clear
+	set.add("mudy").add("huy") //支持链式调用
+	console.log(set);
+
+	set.delete("mudy")
+	console.log(set);
+
+	//判断集合中是否包含某元素
+	console.log(set.has("mudy"));
+
+	//清空
+	// console.log(set.clear());
+
+	//keys
+	console.log(set.keys());
+
+	//values
+	console.log(set.values());
+
+</script>
+
+</body>
+</html>

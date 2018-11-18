@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<canvas id="canvas">当前浏览器版本不支持</canvas>
+<script src="js/underscore.js"></script>
+<script>
+	//1、获取当前画布
+	const canvas = document.getElementById("canvas")
+	const ctx = canvas.getContext('2d')
+	canvas.width = 1000
+	canvas.height = 600
+	canvas.style.backgroundColor = '#000'
+
+	//2 小球类
+	class Ball{
+		constructor(x,y,color){
+			this.x = x
+		    this.y = y
+		    this.r = 50
+			this.color = color
+		}
+
+		render(){//小球的绘制
+			ctx.save()
+		    ctx.beginPath()
+		    ctx.arc(this.x,this.y,this.r,0,Math.PI*2)
+		    ctx.fillStyle = this.color
+		    ctx.fill()
+		    ctx.restore()
+		}
+	}
+
+	//3会移动的小球
+	class MoveBall extends Ball{
+		constructor(x,y, color){
+			super(x,y, color)
+		    this.dx = _.random(-5,5)
+		    this.dy = _.random(-5,5)
+		    this.dr = _.random(5,1)
+		}
+
+		update(){
+			this.x += this.dx
+		    this.y += this.dy
+		    this.r -= this.dr
+		    if (this.r < 0){
+		    	this.r = 0
+		    }
+		}
+	}
+
+	//4、实例化小球
+	let ballArr = []
+	let colorArr = ['red','green','blue','yellow','pink']
+
+	//5、监听鼠标的移动
+	canvas.addEventListener("mousemove",function (e) {
+		// let  e = e || event
+	    ballArr.push(new MoveBall(e.offsetX,e.offsetY,colorArr[_.random(0,colorArr.length-1)]))
+	    console.log(ballArr);
+	})
+
+	//开启定时器
+	setInterval(function () {
+		ctx.clearRect(0,0,canvas.width,canvas.height)
+		ballArr.forEach(function (ball) {
+			ball.render()
+		    ball.update()
+		})
+
+	},50)
+</script>
+
+</body>
+</html>
