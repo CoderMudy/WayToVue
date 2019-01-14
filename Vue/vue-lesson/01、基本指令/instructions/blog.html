@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>blog demo</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <p>标题:<input type="text" v-model="title" placeholder="标题"></p>
+        <p>内容:<textarea name="content" id="" cols="30" rows="10" v-model="content"></textarea></p>
+        <p><input type="submit" value="添加" @click="add"></p>
+        <hr>
+        <table border="1">
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>内容</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(item,index) in datas">
+                <td>{{index+1}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.content}}</td>
+                <td>
+                    <a href="#" @click="deleteRow(index)">删除</a>
+                    <a href="#" @click="editRow(index)">编辑</a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+        <script>
+            var vm = new Vue({
+                el:"#container",
+                data:{
+                    title:"",
+                    content:"",
+                    datas:[]
+                },
+                methods:{
+                    add:function(){
+                        if(this.title == "" || this.content==""){
+                            alert("标题或者内容不能为空")
+                            return
+                        }
+                        this.datas.push({"title":this.title,"content":this.content})
+                        this.title = ""
+                        this.content = ""
+                    },
+                    deleteRow:function(index){
+                        swal ( "Oops" ,  "Something went wrong!" ,  "error" );
+                    },
+                    editRow:function(index){
+                        swal("Hello world!");
+                    }
+                }
+            })
+        
+        </script>
+    
+</body>
+</html>

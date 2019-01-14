@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="container">
+        <input type="text" v-model="itext"><br>
+        你输入的值是:
+        <font>{{itext}}</font>
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el:"#container",
+            data:{
+                flag:false,
+                defaultButton:"显示",
+                itext: ''
+            }
+        })
+    </script>
+</body>
+</html>

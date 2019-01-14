@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <script src="../js/vue.js"></script>    
+</head>
+
+<body>
+    <div id="container">
+        <!-- <input type="button" value="点我" v-on:click="clickme()"/> -->
+        <input type="button" value="点我" @click="clickme()"/>
+        <p>{{num}}</p>
+        <p>{{msg}}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el : "#container",
+            data:{
+                num:1,
+                msg:"hello"
+            },
+            methods:{
+                clickme:function(){
+                    this.num++
+                }
+            }
+        })
+    </script>
+</body>
+
+
+</html>
